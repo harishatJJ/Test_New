@@ -2,6 +2,7 @@ import pandas as pd
 import streamlit as st
 from pandasai import Agent
 from io import StringIO
+import os
 
 st.title("Pandas AI App")
 # Upload CSV file
@@ -15,6 +16,8 @@ if uploaded_file is not None:
     # Display DataFrame
     st.dataframe(df)
     agent = Agent(df)
+    key = st.secrets["PANDASAI_API_KEY"]
+    os.environ["PANDASAI_API_KEY"] = key
     # Get user query
     query = st.text_input("Enter your query")
     if query:
