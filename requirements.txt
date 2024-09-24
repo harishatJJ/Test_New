@@ -1,1 +1,1 @@
-pandasai
+pandasai==2.2.14
